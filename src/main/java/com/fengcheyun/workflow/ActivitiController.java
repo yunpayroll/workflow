@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @EnableAutoConfiguration
-public class SampleController {
+public class ActivitiController {
 
     @RequestMapping("/")
     @ResponseBody
@@ -16,6 +16,6 @@ public class SampleController {
     }
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleController.class, args);
+        SpringApplication.run(ActivitiController.class, args);
     }
 }
