@@ -46,39 +46,39 @@ public class TestController {
     @RequestMapping("/test")
     @ResponseBody
     public String home() throws IOException {
-    	ProcessInstance pi = runtimeService.startProcessInstanceByKey("oneTaskProcess");
-
-        ProcessDefinitionEntity definition = (ProcessDefinitionEntity)repositoryService.getProcessDefinition(pi.getProcessDefinitionId());
-
-        BpmnModel bpmnModel = repositoryService.getBpmnModel(pi.getProcessDefinitionId());
-
-        ProcessDiagramGenerator pdg = new DefaultProcessDiagramGenerator();
-        if (bpmnModel.getLocationMap().size() == 0) {
-            BpmnAutoLayout autoLayout = new BpmnAutoLayout(bpmnModel);
-            autoLayout.execute();
-        }
-        List<Task> list = taskService.createTaskQuery().processInstanceId(pi.getId()).list();
-        for(Task task :list) {
-        	
-        	taskService.complete(task.getId());
-        }
-       
-        List<HistoricActivityInstance> activitis =  historyService.createHistoricActivityInstanceQuery().processInstanceId(pi.getId()).finished().list();
-        List<String> hlacts = new ArrayList<>();
-        activitis.forEach(act->{hlacts.add(act.getActivityId());});
-        List<String> highlightflows = new ArrayList<>();
-        getHighLightedFlows(definition.getActivities(),highlightflows,hlacts);
-
-        InputStream is = pdg.generateDiagram(bpmnModel,"png",hlacts,highlightflows);
-        
-        
-        FileOutputStream fos =new FileOutputStream(new File("/Users/baidu/test.png"));
-        IOUtils.copy(is,fos);
-        fos.flush();
-        fos.close();
-        is.close();
-        System.out.println("ddddeeeyyddd");
-        return "Hello World !";
+//    	ProcessInstance pi = runtimeService.startProcessInstanceByKey("oneTaskProcess");
+//
+//        ProcessDefinitionEntity definition = (ProcessDefinitionEntity)repositoryService.getProcessDefinition(pi.getProcessDefinitionId());
+//
+//        BpmnModel bpmnModel = repositoryService.getBpmnModel(pi.getProcessDefinitionId());
+//
+//        ProcessDiagramGenerator pdg = new DefaultProcessDiagramGenerator();
+//        if (bpmnModel.getLocationMap().size() == 0) {
+//            BpmnAutoLayout autoLayout = new BpmnAutoLayout(bpmnModel);
+//            autoLayout.execute();
+//        }
+//        List<Task> list = taskService.createTaskQuery().processInstanceId(pi.getId()).list();
+//        for(Task task :list) {
+//        	
+//        	taskService.complete(task.getId());
+//        }
+//       
+//        List<HistoricActivityInstance> activitis =  historyService.createHistoricActivityInstanceQuery().processInstanceId(pi.getId()).finished().list();
+//        List<String> hlacts = new ArrayList<>();
+//        activitis.forEach(act->{hlacts.add(act.getActivityId());});
+//        List<String> highlightflows = new ArrayList<>();
+//        getHighLightedFlows(definition.getActivities(),highlightflows,hlacts);
+//
+//        InputStream is = pdg.generateDiagram(bpmnModel,"png",hlacts,highlightflows);
+//        
+//        
+//        FileOutputStream fos =new FileOutputStream(new File("/Users/baidu/test.png"));
+//        IOUtils.copy(is,fos);
+//        fos.flush();
+//        fos.close();
+//        is.close();
+//        System.out.println("ddddeeeyyddd");
+        return "Hello World test!";
     }
 
     private void getHighLightedFlows(List<ActivityImpl> activityList,

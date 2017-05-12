@@ -75,7 +75,7 @@
             <artifactId>activiti-bpmn-layout</artifactId>
             <version>5.22.0</version>
         </dependency>
-<!--         <dependency>
+<!--          <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-explorer</artifactId>
             <version>5.22.0</version>
