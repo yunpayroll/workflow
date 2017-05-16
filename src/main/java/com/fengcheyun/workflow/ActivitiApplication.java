@@ -13,6 +13,13 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Created by xuxiaokang on 2017/4/24.
  */
+
+//@EnableAutoConfiguration(exclude = {
+//org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class,
+//org.activiti.spring.boot.SecurityAutoConfiguration.class,
+//org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration.class
+//})
+
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
