@@ -28,11 +28,12 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @ComponentScan
-@EnableAutoConfiguration(exclude = {
-        org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class,
-        org.activiti.spring.boot.SecurityAutoConfiguration.class
-//        ,org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration.class
-})
+@EnableAutoConfiguration
+//@EnableAutoConfiguration(exclude = {
+//        org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class,
+//        org.activiti.spring.boot.SecurityAutoConfiguration.class
+////        ,org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration.class
+//})
 public class ActivitiApplication {
 
 
